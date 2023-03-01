@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="login-container">
+    <h2>Login</h2>
+    <form>
+        <table>
+           
+            <tr>
+                <td>UserName</td>
+                <td>
+                    <!-- <input type="text" [(ngModel)]="username" name="user" formControlName="Name"> -->
+                    <input type="text" name="user" formControlName="Name">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <!-- <input type="password" [(ngModel)]="pass" name="pass" formControlName="Password"> -->
+                    <input type="password" name="pass" formControlName="Password">
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    <button type="submit" value="SAVE" >LOGIN</button>
+                    <!-- <input type="submit" (click)="login()"/> -->
+                    <br />
+                    <br>
+                    <a routerLink="/register">Register</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    </div>

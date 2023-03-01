@@ -1,5 +1,6 @@
 export interface Student{
-    Name:string;
-    Phone:string;
-    Password:string;
+    id:string;
+    name:string;
+    phone:string;
+    password:string;
 }

@@ -87,8 +87,9 @@ export class RegisterComponent implements OnInit {
   UpdateStudentinfo(obj: { id:any; name: any; phone:any ; password:any ; }){
 
     console.log(this.student);
-    this.userservice.UpdateStudent(this.student).subscribe(data=>
+    this.userservice.UpdateStudent(this.student).subscribe((res:any)=>
       {
+        this.displayMsg='Account updated successfully';
         this.getData();
       });
   }

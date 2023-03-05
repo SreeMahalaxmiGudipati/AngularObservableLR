@@ -16,4 +16,9 @@ export class UserService {
   return this.http.get<Student[]>(this.baseUrl);
  }
 
+ DeleteStudent(id:any) : Observable<Student[]>  {
+  return this.http.delete<Student[]>(this.baseUrl+'/'+id);
+ }
+
+ 
 }

@@ -8,12 +8,21 @@ import { UserService } from '../user.service';
   styleUrls: ['./viewdetails.component.css']
 })
 export class ViewdetailsComponent implements OnInit{
-data:any;
-constructor(private route:ActivatedRoute,private userservice:UserService){}
-
-
-ngOnInit(){
+  data:any;
+  id:any;
+  constructor(private route:ActivatedRoute,private userservice:UserService){}
   
-}
-
+  
+  ngOnInit(){
+    this.id=this.route.snapshot.params['id'];
+    this.getInfoById();
+  }
+  
+    getInfoById(){
+      this.userservice.getDetailsById(this.id).subscribe((data:any)=>
+      {
+        this.data=data;
+        console.log(this.data);
+      })
+    }
 }

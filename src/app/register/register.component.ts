@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../models/student.model';
+import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
+import { ActivatedRoute } from '@angular/router';
+import { Student } from '../models/student.model';
 
 @Component({
   selector: 'app-register',
@@ -9,20 +11,43 @@ import { UserService } from '../user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  students:Student[]=[];
+  student = new Student();
+  students=[];
+  currentStudentID=[];
 
-   constructor(private userservice:UserService){}
+  route: any;
+  activeindex: any;
+  data: any;
+
+
+   constructor(private userservice:UserService){
+    
+   }
+
+  getData()
+  {
+    this.userservice.getAllStudents().subscribe((data: any)=>
+    {
+      this.data=data;
+      console.log(this.data);
+    })
+  }
+   
+  DeleteStudentinfo(id:any){
+    this.userservice.DeleteStudent(id).subscribe((data:any)=>
+    {
+      console.log(data);
+    alert("Student details Deleted");
+    this.getData(); 
+    })
+  }
 
    ngOnInit() : void{
-    this. getallStudents();
+   this.getData();
    }
 
-   getallStudents(){
-    this.userservice.getAllStudents().subscribe(res=>
-      {
-       this.students=res;
-       console.log(this.students);
-      });
-   }
-   
+
+
+ 
+  
 }

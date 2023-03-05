@@ -29,7 +29,7 @@
                 <td>
                     <button type="submit" value="SAVE" >SAVE</button>
                     <br><br>
-                    <a routerLink="/login">Login</a>
+                    <a routerLink="/parent/login">Login</a>
                 </td>
             </tr>
         </table>
@@ -61,6 +61,7 @@
                       <td>
                         <button type="button" class="btn btn-success" (click)="edit(StudentItem,j)">Edit</button>
                         <button type="button" class="btn btn-danger" (click)="DeleteStudentinfo(StudentItem.id)">Delete</button>
+                        <a routerLink="['/viewdetails/'+StudentItem.id]">View Details</a>
                       </td>
                     </tr>
             </tbody>

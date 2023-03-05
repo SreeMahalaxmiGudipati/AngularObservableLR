@@ -1,6 +1,6 @@
-export interface Student{
-    id:string;
-    name:string;
-    phone:string;
-    password:string;
+export class Student{
+   id:any;
+    name:any;
+    phone:any;
+    password:any;
 }

@@ -43,10 +43,13 @@
         <table class="table">
             <thead>
             <tr>
-                  <th>      ID</th>
-                    <th>    Name</th>
-                     <th>   Contact No</th>
-                    <th>    Password</th>
+                  <th>      ID  </th>
+                    <th>    Name  </th>
+                     <th>   Contact No  </th>
+                    <th>    Password  </th>
+                    <th>    Update </th>
+                    <th>    Delete </th>
+                    <th>    View Data </th>
                    
             </tr>
             </thead>
@@ -61,7 +64,7 @@
                       <td>
                         <button type="button" class="btn btn-success" (click)="edit(StudentItem,j)">Edit</button>
                         <button type="button" class="btn btn-danger" (click)="DeleteStudentinfo(StudentItem.id)">Delete</button>
-                        <a routerLink="['/viewdetails/'+StudentItem.id]">View Details</a>
+                        <a [routerLink]="['/viewdetails/'+StudentItem.id]">View Details</a>
                       </td>
                     </tr>
             </tbody>

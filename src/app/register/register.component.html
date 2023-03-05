@@ -1,25 +1,27 @@
 <div class="register-container">
     <h2>Register</h2>
-    <form >
+    <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'" >{{displayMsg}}</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)=" registerSubmitted()">
         <table>
            
             <tr>
                 <td>UserName</td>
                 <td>
-                    <input type="text" name="Name" formControlName="Name1" [(ngModel)]="student.name">
+                    <input type="text" name="Name" formControlName="Name" [(ngModel)]="student.name">
                 </td>
             </tr>
            
             <tr>
                 <td>Contact No</td>
                 <td>
-                    <input type="text" name="phone"  formControlName="Phone1" [(ngModel)]="student.phone">
+                    <input type="text" name="phone"  formControlName="Phone" [(ngModel)]="student.phone">
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>
-                    <input type="password"  name="pass" formControlName="pass1" [(ngModel)]="student.password">
+                    <input type="password"  name="pass" formControlName="pass" [(ngModel)]="student.password">
                 </td>
             </tr>
             <tr>

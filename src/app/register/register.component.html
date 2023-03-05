@@ -2,7 +2,7 @@
     <h2>Register</h2>
     <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'" >{{displayMsg}}</p>
 
-    <form [formGroup]="registerForm" (ngSubmit)=" registerSubmitted()">
+    <form [formGroup]="registerForm" (ngSubmit)=" save()">
         <table>
            
             <tr>
@@ -59,7 +59,7 @@
                         <td>{{ StudentItem.password }}</td> 
                         
                       <td>
-                        <button type="button" class="btn btn-success" >Edit</button>
+                        <button type="button" class="btn btn-success" (click)="edit(StudentItem,j)">Edit</button>
                         <button type="button" class="btn btn-danger" (click)="DeleteStudentinfo(StudentItem.id)">Delete</button>
                       </td>
                     </tr>

@@ -6,6 +6,7 @@ import { Student } from './models/student.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
 
   private baseUrl ="https://localhost:7068/api/Students";
@@ -20,6 +21,12 @@ export class UserService {
   return this.http.delete<Student[]>(this.baseUrl+'/'+id);
  }
  
+ UpdateStudent(student: Student) : Observable<Student[]>  {
+  console.log("service update entered");
+  console.log(student);
+  return this.http.put<Student[]>(this.baseUrl+'/'+student.id,student);
+ }
+
  registerUser(user:Array<String>)
  {
    return this.http.post(this.baseUrl ,{

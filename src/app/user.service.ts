@@ -20,6 +20,10 @@ export class UserService {
  DeleteStudent(id:any) : Observable<Student[]>  {
   return this.http.delete<Student[]>(this.baseUrl+'/'+id);
  }
+
+ getDetailsById(id:any): Observable<Student[]>  {
+  return this.http.get<Student[]>(this.baseUrl+'/'+id);
+ }
  
  UpdateStudent(student: Student) : Observable<Student[]>  {
   console.log("service update entered");

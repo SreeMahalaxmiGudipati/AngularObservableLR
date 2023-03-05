@@ -6,20 +6,20 @@
             <tr>
                 <td>UserName</td>
                 <td>
-                    <input type="text" name="Name" formControlName="Name" >
+                    <input type="text" name="Name" formControlName="Name1" [(ngModel)]="student.name">
                 </td>
             </tr>
            
             <tr>
                 <td>Contact No</td>
                 <td>
-                    <input type="text" name="phone" formControlName="Phone" >
+                    <input type="text" name="phone"  formControlName="Phone1" [(ngModel)]="student.phone">
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>
-                    <input type="password"  name="pass" formControlName="pass" >
+                    <input type="password"  name="pass" formControlName="pass1" [(ngModel)]="student.password">
                 </td>
             </tr>
             <tr>
@@ -45,18 +45,20 @@
                     <th>    Name</th>
                      <th>   Contact No</th>
                     <th>    Password</th>
+                   
             </tr>
             </thead>
         
             <tbody>
-                    <tr *ngFor="let StudentItem of students">
-                        <td>{{ StudentItem.id }}</td>
+                    <tr *ngFor="let StudentItem of data; let j=index">
+                       <td>{{StudentItem.id}}</td>
                         <td>{{ StudentItem.name }}</td>
                         <td>{{ StudentItem.phone }}</td>
-                        <td>{{ StudentItem.password }}</td>
+                        <td>{{ StudentItem.password }}</td> 
+                        
                       <td>
                         <button type="button" class="btn btn-success" >Edit</button>
-                        <button type="button" class="btn btn-danger" >Delete</button>
+                        <button type="button" class="btn btn-danger" (click)="DeleteStudentinfo(StudentItem.id)">Delete</button>
                       </td>
                     </tr>
             </tbody>

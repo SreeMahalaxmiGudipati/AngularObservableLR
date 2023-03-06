@@ -1,20 +1,20 @@
 <div class="login-container">
     <h2>Login</h2>
-    <form (click)=" loginSubmitted()">
+    <form [formGroup]="LoginForm" (click)=" loginSubmitted()">
         <table>
            
             <tr>
                 <td>UserName</td>
                 <td>
-                    <input type="text" [(ngModel)]="username" name="user" formControlName="Name">
-                    <!-- <input type="text" name="user" formControlName="Name"> -->
+                    <input type="text"  name="user" formControlName="Name">
+                  
                 </td>
             </tr>
             <tr>
                 <td>Password</td>
                 <td>
-                    <input type="password" [(ngModel)]="pass" name="pass" formControlName="Password">
-                    <!-- <input type="password" name="pass" formControlName="Password"> -->
+                    <input type="password" name="pass" formControlName="Pass">
+                 
                 </td>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                   
                     <br />
                     <br>
-                    <a routerLink="/register">Register</a>
+                    <a routerLink="/parent/register">Register</a>
                 </td>
             </tr>
         </table>

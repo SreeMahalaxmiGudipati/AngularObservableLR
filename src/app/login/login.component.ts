@@ -43,11 +43,10 @@ export class LoginComponent  {
   //            this.userservice.loginUser(this.LoginForm.value).subscribe({
   //             next:(res)=>{
   //               console.log("logged in");
-  //               alert(res.message);
+  //               console.log(res);
   //             },
   //             error:(err)=>{
   //               console.log("login failed");
-  //               alert(err.error.message);
   //             }
 
   //            });
@@ -67,8 +66,5 @@ export class LoginComponent  {
     this.router.navigate(['/viewdetails/'+user.id]);
     }
   }
-
- 
-  
   
 }

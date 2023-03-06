@@ -42,5 +42,9 @@ export class UserService {
      responseType:'text',
    });
  }
+
+ loginUser(data:any){
+   return this.http.post(this.baseUrl + '/authenticate',data);
+ }
  
 }

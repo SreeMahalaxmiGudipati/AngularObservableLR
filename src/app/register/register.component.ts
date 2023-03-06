@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,16 +11,19 @@ import { Student } from '../models/student.model';
 })
 export class RegisterComponent implements OnInit {
 
+  //receiving data from parent component
+  @Input() recievingdataToRegister: string | undefined;
+  
+
   student = new Student();
- 
   displayMsg:string='';
   isAccountCreated: boolean=false;
   data: any;
   activeindex=-1;
   
-
    constructor(private userservice:UserService){
     this.getData();
+    
    }
 
    public registerForm =new FormGroup({
@@ -31,6 +34,7 @@ export class RegisterComponent implements OnInit {
     
   ngOnInit() : void{
     this.getData();
+    console.log(this.recievingdataToRegister);
     }
 
   registerSubmitted(){

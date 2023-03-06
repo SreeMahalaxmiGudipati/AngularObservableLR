@@ -2,6 +2,8 @@
     <h2>Register</h2>
     <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'" >{{displayMsg}}</p>
 
+   <p>Message from parent component = {{recievingdataToRegister}}</p>
+
     <form [formGroup]="registerForm" (ngSubmit)=" save()">
         <table>
            

@@ -44,7 +44,9 @@ export class UserService {
  }
 
  loginUser(data:any){
-   return this.http.post(this.baseUrl + '/authenticate',data);
+  
+   return this.http.post<any>(this.baseUrl + '/authenticate',data);
  }
+
  
 }

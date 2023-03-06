@@ -1,6 +1,7 @@
 <div class="login-container">
     <h2>Login</h2>
-    <form [formGroup]="LoginForm" (click)=" loginSubmitted()">
+    <p class="text-center fs-3" [ngClass]="isUserLogged ? 'text-success pb-1' : 'text-danger pb-1'" >{{displayMsg}}</p>
+    <form [formGroup]="LoginForm" (ngSubmit)=" loginSubmitted()">
         <table>
            
             <tr>

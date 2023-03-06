@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import { Student } from '../models/student.model';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -9,7 +9,13 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent  {
+export class LoginComponent implements OnInit{
+  //child to parent componnet communication
+  @Output() MsgfromparentFromToLogin:EventEmitter<any>=new EventEmitter();
+
+  ngOnInit():void{
+    this.MsgfromparentFromToLogin.emit("Msg from child to parent");
+  }
 
   name: any;
   pass: any;
@@ -17,7 +23,7 @@ export class LoginComponent  {
   students: any ;
   displayMsg:string='';
   isUserLogged: boolean=false;
-
+  MsgLoginToParent="Login to parent";
 
    constructor(private userservice:UserService,private router:Router){
         this.getData();

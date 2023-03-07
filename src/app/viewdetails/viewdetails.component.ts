@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from '../user.service';
 export class ViewdetailsComponent implements OnInit{
   data:any;
   id:any;
-  constructor(private route:ActivatedRoute,private userservice:UserService){}
+  constructor(private route:ActivatedRoute,private userservice:UserService,private toastr:ToastrService,private router:Router){}
   
   
   ngOnInit(){
@@ -24,5 +25,12 @@ export class ViewdetailsComponent implements OnInit{
         this.data=data;
         console.log(this.data);
       })
+    }
+
+    logOut() {
+      localStorage.removeItem('user');
+      localStorage.clear();
+      this.toastr.error('User Logged Out Successfully');
+      this.router.navigate(['/parent/login']);
     }
 }

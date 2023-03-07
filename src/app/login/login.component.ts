@@ -73,6 +73,7 @@ export class LoginComponent implements OnInit{
       console.log("login success");
       this.isUserLogged=true;
       localStorage.setItem('user', JSON.stringify(user));  
+      sessionStorage.setItem('user', JSON.stringify(user));  
     this.router.navigate(['/viewdetails/'+user.id]);
     }
   }

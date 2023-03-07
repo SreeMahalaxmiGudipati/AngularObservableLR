@@ -1,6 +1,6 @@
-<div class="register-container">
-    <h2>Register</h2>
-    <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-danger pb-1'" >{{displayMsg}}</p>
+<div class="register-container"><br>
+    <h2>REGISTER</h2>
+    <p class="text-center fs-3" [ngClass]="isAccountCreated ? 'text-success pb-1' : 'text-success pb-1'" >{{displayMsg}}</p>
 
    <p>Message from parent component = {{recievingdataToRegister}}</p>
 
@@ -39,7 +39,7 @@
     
     </div>
     
-    <div>
+    <div class="register-container">
         <h1>Student Details</h1>
     
         <table class="table">
@@ -49,9 +49,9 @@
                     <th>    Name  </th>
                      <th>   Contact No  </th>
                     <th>    Password  </th>
-                    <!-- <th>    Update </th>
+                    <th>    Update </th>
                     <th>    Delete </th>
-                    <th>    View Data </th> -->
+                    <th>    View Data </th>
                    
             </tr>
             </thead>
@@ -64,10 +64,10 @@
                         <td>{{ StudentItem.password }}</td> 
                         
                       <td>
-                        <button type="button" class="btn btn-success" (click)="edit(StudentItem,j)">Edit</button>
-                        <button type="button" class="btn btn-danger" (click)="DeleteStudentinfo(StudentItem.id)">Delete</button>
-                        <a [routerLink]="['/viewdetails/'+StudentItem.id]">View Details</a>
-                      </td>
+                        <button type="button" class="btn btn-success" (click)="edit(StudentItem,j)">Update</button></td>
+                    <td> <button type="button" class="btn btn-danger" (click)="DeleteStudentinfo(StudentItem.id)">Delete</button></td>   
+                    <td>   <a [routerLink]="['/viewdetails/'+StudentItem.id]">View Details</a></td>   
+                      
                     </tr>
             </tbody>
         

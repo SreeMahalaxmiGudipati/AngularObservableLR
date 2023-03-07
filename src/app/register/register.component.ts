@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from '../models/student.model';
-import { ToastrService } from 'ngx-toastr/public_api';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
             ]).subscribe((res: any)=>{
               if(res==''){
                 this.displayMsg='Something wrong';
-                this.toastr.error(res.Errors[0]);
+              //  this.toastr.error(res.Errors[0]);
                 console.log(res);
                 this.isAccountCreated=true;
                 this.getData();
@@ -55,7 +55,8 @@ export class RegisterComponent implements OnInit {
               else {
               
                 this.displayMsg='Account created successfully';
-                this.toastr.success("User registered successfully");
+                this.toastr.success('Hello world!', 'Toastr fun!');
+                //this.toastr.success("User registered successfully");
                 console.log(res);
                 this.isAccountCreated=false;
                 this.getData();
@@ -77,6 +78,7 @@ export class RegisterComponent implements OnInit {
     {
       // console.log(data);
     alert("Student details Deleted");
+    this.toastr.success("User deleted successfully");
     this.getData(); 
     })
   }

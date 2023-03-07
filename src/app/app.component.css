@@ -1,6 +1,4 @@
-.nav{
-    padding-top: 0%;
-}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -17,9 +15,10 @@ ul {
     display: block;
     color: white;
     text-align: center;
-    padding: 16px 45px;
+    padding: 16px 62px;
     text-decoration: none;
   }
+
   
   li a:hover {
     background-color: green;

@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Student } from '../models/student.model';
+import { ToastrService } from 'ngx-toastr/public_api';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
   data: any;
   activeindex=-1;
   
-   constructor(private userservice:UserService){
+   constructor(private userservice:UserService,private toastr:ToastrService){
     this.getData();
     
    }
@@ -46,6 +47,7 @@ export class RegisterComponent implements OnInit {
             ]).subscribe((res: any)=>{
               if(res==''){
                 this.displayMsg='Something wrong';
+                this.toastr.error(res.Errors[0]);
                 console.log(res);
                 this.isAccountCreated=true;
                 this.getData();
@@ -53,6 +55,7 @@ export class RegisterComponent implements OnInit {
               else {
               
                 this.displayMsg='Account created successfully';
+                this.toastr.success("User registered successfully");
                 console.log(res);
                 this.isAccountCreated=false;
                 this.getData();

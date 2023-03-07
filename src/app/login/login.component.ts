@@ -3,6 +3,7 @@ import { Student } from '../models/student.model';
 import { UserService } from '../user.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit{
   isUserLogged: boolean=false;
   MsgLoginToParent="Login to parent";
 
-   constructor(private userservice:UserService,private router:Router){
+   constructor(private userservice:UserService,private router:Router,private toastr:ToastrService){
         this.getData();
    }
 
@@ -66,6 +67,7 @@ export class LoginComponent implements OnInit{
       console.log("logged failed");
       this.displayMsg='User Not Found';
     } else{
+      this.toastr.success('User logged successfully');
       this.displayMsg='User Logged successfully';
       console.log("login success");
       this.isUserLogged=true;

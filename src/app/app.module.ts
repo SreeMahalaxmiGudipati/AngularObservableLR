@@ -28,7 +28,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut:1000,
+      timeOut:3000,
       progressBar:true,
       progressAnimation:'increasing',
       positionClass:'toast-top-right'

@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
             ]).subscribe((res: any)=>{
               if(res==''){
                 this.displayMsg='Something wrong';
-              //  this.toastr.error(res.Errors[0]);
+                this.toastr.error(res.Errors[0]);
                 console.log(res);
                 this.isAccountCreated=true;
                 this.getData();
@@ -77,7 +77,7 @@ export class RegisterComponent implements OnInit {
     this.userservice.DeleteStudent(id).subscribe((data:any)=>
     {
       // console.log(data);
-    alert("Student details Deleted");
+  //  alert("Student details Deleted");
     this.toastr.error('User deleted successfully');
     this.getData(); 
     })
@@ -98,7 +98,8 @@ export class RegisterComponent implements OnInit {
     console.log(this.student);
     this.userservice.UpdateStudent(this.student).subscribe((res:any)=>
       {
-        this.displayMsg='Account updated successfully';
+        this.toastr.info('User Updated successfully');
+      //  this.displayMsg='Account updated successfully';
         this.getData();
       });
   }

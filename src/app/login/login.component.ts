@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit{
+
   //child to parent componnet communication
   @Output() MsgfromparentFromToLogin:EventEmitter<any>=new EventEmitter();
 
@@ -61,18 +62,21 @@ export class LoginComponent implements OnInit{
 
   loginSubmitted(){
     const user = this.students.find( (x: { name: any; password: any; }) => x.name === this.LoginForm.value.Name && x.password === this.LoginForm.value.Pass);
- //   console.log(this.students);
     console.log(user);
     if (!user) {
       console.log("logged failed");
-      this.displayMsg='User Not Found';
+    //  this.displayMsg='User Not Found';
+      this.toastr.error('User Not Found');
     } else{
       this.toastr.success('User logged successfully');
-      this.displayMsg='User Logged successfully';
+      console.log(user);
       console.log("login success");
       this.isUserLogged=true;
+      localStorage.setItem('user', JSON.stringify(user));  
     this.router.navigate(['/viewdetails/'+user.id]);
     }
   }
+
+  
   
 }

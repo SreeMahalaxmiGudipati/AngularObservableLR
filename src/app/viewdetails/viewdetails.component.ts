@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { UserService } from '../user.service';
 export class ViewdetailsComponent implements OnInit{
   data:any;
   id:any;
-  constructor(private route:ActivatedRoute,private userservice:UserService,private toastr:ToastrService,private router:Router){}
+  constructor(private route:ActivatedRoute,private userservice:UserService,private toastr:ToastrService,private router:Router
+    ,private authservice:AuthService){}
   
   
   ngOnInit(){
@@ -30,6 +32,7 @@ export class ViewdetailsComponent implements OnInit{
     logOut() {
       localStorage.removeItem('user');
       localStorage.clear();
+      this.authservice.isUserloggedAuthService=false;
       this.toastr.error('User Logged Out Successfully');
       this.router.navigate(['/parent/login']);
     }

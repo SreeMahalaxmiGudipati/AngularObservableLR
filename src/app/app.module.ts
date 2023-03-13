@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewdetailsComponent } from './viewdetails/viewdetails.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserAnimationsModule
    
   ],
-  providers: [UserService],
+  providers: [UserService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

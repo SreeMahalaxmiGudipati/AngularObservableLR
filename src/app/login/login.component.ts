@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit{
   isUserLogged: boolean=false;
   MsgLoginToParent="Login to parent";
 
-   constructor(private userservice:UserService,private router:Router,private toastr:ToastrService){
+   constructor(private userservice:UserService,private router:Router,private toastr:ToastrService,private authservice:AuthService){
         this.getData();
    }
 
@@ -72,6 +73,7 @@ export class LoginComponent implements OnInit{
       console.log(user);
       console.log("login success");
       this.isUserLogged=true;
+      this.authservice.isUserloggedAuthService=true;
       localStorage.setItem('user', JSON.stringify(user));  
       sessionStorage.setItem('user', JSON.stringify(user));  
     this.router.navigate(['/viewdetails/'+user.id]);
